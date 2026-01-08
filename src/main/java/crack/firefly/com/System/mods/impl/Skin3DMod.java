@@ -1,0 +1,51 @@
+package crack.firefly.com.System.mods.impl;
+
+import crack.firefly.com.System.language.TranslateText;
+import crack.firefly.com.System.mods.Mod;
+import crack.firefly.com.System.mods.ModCategory;
+
+public class Skin3DMod extends Mod {
+
+	private static Skin3DMod instance;
+	
+	private float baseVoxelSize = 1.15F;
+	private float bodyVoxelWidthSize = 1.05F;
+	private float headVoxelSize = 1.18F;
+
+	private int renderDistanceLOD = 14;
+	
+	public Skin3DMod() {
+		super(TranslateText.SKIN_3D, TranslateText.SKIN_3D_DESCRIPTION, ModCategory.RENDER);
+		
+		instance = this;
+	}
+	
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		
+		if(MoBendsMod.getInstance().isToggled()) {
+			MoBendsMod.getInstance().setToggled(false);
+		}
+	}
+
+	public static Skin3DMod getInstance() {
+		return instance;
+	}
+
+	public float getBaseVoxelSize() {
+		return baseVoxelSize;
+	}
+
+	public float getBodyVoxelWidthSize() {
+		return bodyVoxelWidthSize;
+	}
+
+	public float getHeadVoxelSize() {
+		return headVoxelSize;
+	}
+
+	public int getRenderDistanceLOD() {
+		return renderDistanceLOD;
+	}
+}
